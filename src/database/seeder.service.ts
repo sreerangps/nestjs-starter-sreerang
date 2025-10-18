@@ -28,7 +28,8 @@ export class SeederService implements OnModuleInit {
     const policies = [
       {
         name: 'Basic Health Cover',
-        description: 'Comprehensive health insurance for individuals covering hospitalization and treatment expenses',
+        description:
+          'Comprehensive health insurance for individuals covering hospitalization and treatment expenses',
         premium: 5000,
         coverageAmount: 500000,
         durationMonths: 12,
@@ -36,7 +37,8 @@ export class SeederService implements OnModuleInit {
       },
       {
         name: 'Family Health Plan',
-        description: 'Extended coverage for entire family including spouse and children',
+        description:
+          'Extended coverage for entire family including spouse and children',
         premium: 12000,
         coverageAmount: 1000000,
         durationMonths: 12,
@@ -44,7 +46,8 @@ export class SeederService implements OnModuleInit {
       },
       {
         name: 'Senior Citizen Health Shield',
-        description: 'Specialized health insurance for senior citizens with additional benefits',
+        description:
+          'Specialized health insurance for senior citizens with additional benefits',
         premium: 8000,
         coverageAmount: 750000,
         durationMonths: 12,
@@ -52,7 +55,8 @@ export class SeederService implements OnModuleInit {
       },
       {
         name: 'Critical Illness Cover',
-        description: 'Comprehensive coverage for critical illnesses including cancer, heart diseases',
+        description:
+          'Comprehensive coverage for critical illnesses including cancer, heart diseases',
         premium: 15000,
         coverageAmount: 2000000,
         durationMonths: 24,

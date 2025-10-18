@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseIntPipe,
+  Query,
+} from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiQuery } from '@nestjs/swagger';
 import { RulesService } from './rules.service';
 import { CreateRuleDto } from './dto/create-rule.dto';
@@ -39,7 +49,10 @@ export class RulesController {
   @ApiOperation({ summary: 'Update rule (Admin)' })
   @ApiResponse({ status: 200, description: 'Rule successfully updated' })
   @ApiResponse({ status: 404, description: 'Rule not found' })
-  update(@Param('id', ParseIntPipe) id: number, @Body() updateRuleDto: UpdateRuleDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateRuleDto: UpdateRuleDto,
+  ) {
     return this.rulesService.update(id, updateRuleDto);
   }
 

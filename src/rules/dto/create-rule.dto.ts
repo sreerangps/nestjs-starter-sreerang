@@ -1,4 +1,10 @@
-import { IsString, IsNumber, IsEnum, IsOptional, IsObject } from 'class-validator';
+import {
+  IsString,
+  IsNumber,
+  IsEnum,
+  IsOptional,
+  IsObject,
+} from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { RuleType } from '../entities/rule.entity';
 

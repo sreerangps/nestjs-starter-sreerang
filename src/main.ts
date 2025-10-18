@@ -7,11 +7,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Enable validation
-  app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,
-    forbidNonWhitelisted: true,
-    transform: true,
-  }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  );
 
   // Setup Swagger documentation
   const config = new DocumentBuilder()
@@ -31,4 +33,4 @@ async function bootstrap() {
   console.log(`Application is running on: http://localhost:3000`);
   console.log(`Swagger documentation: http://localhost:3000/api`);
 }
-bootstrap();
+void bootstrap();

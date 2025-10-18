@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseIntPipe,
+  Query,
+} from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiQuery } from '@nestjs/swagger';
 import { ApplicationsService } from './applications.service';
 import { CreateApplicationDto } from './dto/create-application.dto';
@@ -11,7 +21,10 @@ export class ApplicationsController {
 
   @Post()
   @ApiOperation({ summary: 'Submit a policy application' })
-  @ApiResponse({ status: 201, description: 'Application successfully submitted' })
+  @ApiResponse({
+    status: 201,
+    description: 'Application successfully submitted',
+  })
   create(@Body() createApplicationDto: CreateApplicationDto) {
     return this.applicationsService.create(createApplicationDto);
   }
@@ -39,7 +52,10 @@ export class ApplicationsController {
   @ApiOperation({ summary: 'Update application status (Admin)' })
   @ApiResponse({ status: 200, description: 'Application successfully updated' })
   @ApiResponse({ status: 404, description: 'Application not found' })
-  update(@Param('id', ParseIntPipe) id: number, @Body() updateApplicationDto: UpdateApplicationDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateApplicationDto: UpdateApplicationDto,
+  ) {
     return this.applicationsService.update(id, updateApplicationDto);
   }
 

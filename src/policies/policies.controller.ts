@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { PoliciesService } from './policies.service';
 import { CreatePolicyDto } from './dto/create-policy.dto';
@@ -35,7 +44,10 @@ export class PoliciesController {
   @ApiOperation({ summary: 'Update policy (Admin)' })
   @ApiResponse({ status: 200, description: 'Policy successfully updated' })
   @ApiResponse({ status: 404, description: 'Policy not found' })
-  update(@Param('id', ParseIntPipe) id: number, @Body() updatePolicyDto: UpdatePolicyDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updatePolicyDto: UpdatePolicyDto,
+  ) {
     return this.policiesService.update(id, updatePolicyDto);
   }
 

@@ -10,7 +10,10 @@ export class CreateApplicationDto {
   @IsNumber()
   policyId: number;
 
-  @ApiProperty({ example: '123456789012', description: '12-digit Aadhaar number' })
+  @ApiProperty({
+    example: '123456789012',
+    description: '12-digit Aadhaar number',
+  })
   @IsString()
   @Matches(/^\d{12}$/, { message: 'Aadhaar must be a 12-digit number' })
   aadhaar: string;

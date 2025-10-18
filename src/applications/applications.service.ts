@@ -12,8 +12,11 @@ export class ApplicationsService {
     private applicationsRepository: Repository<Application>,
   ) {}
 
-  async create(createApplicationDto: CreateApplicationDto): Promise<Application> {
-    const application = this.applicationsRepository.create(createApplicationDto);
+  async create(
+    createApplicationDto: CreateApplicationDto,
+  ): Promise<Application> {
+    const application =
+      this.applicationsRepository.create(createApplicationDto);
     return this.applicationsRepository.save(application);
   }
 
@@ -41,7 +44,10 @@ export class ApplicationsService {
     return application;
   }
 
-  async update(id: number, updateApplicationDto: UpdateApplicationDto): Promise<Application> {
+  async update(
+    id: number,
+    updateApplicationDto: UpdateApplicationDto,
+  ): Promise<Application> {
     const application = await this.findOne(id);
     Object.assign(application, updateApplicationDto);
     return this.applicationsRepository.save(application);

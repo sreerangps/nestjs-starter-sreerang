@@ -1,4 +1,8 @@
-import { Injectable, ConflictException, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  ConflictException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
@@ -15,10 +19,7 @@ export class UsersService {
 
   async register(registerDto: RegisterDto): Promise<Omit<User, 'password'>> {
     const existingUser = await this.usersRepository.findOne({
-      where: [
-        { email: registerDto.email },
-        { aadhaar: registerDto.aadhaar },
-      ],
+      where: [{ email: registerDto.email }, { aadhaar: registerDto.aadhaar }],
     });
 
     if (existingUser) {
@@ -32,6 +33,7 @@ export class UsersService {
     });
 
     const savedUser = await this.usersRepository.save(user);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...result } = savedUser;
     return result;
   }
@@ -45,11 +47,15 @@ export class UsersService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const isPasswordValid = await bcrypt.compare(loginDto.password, user.password);
+    const isPasswordValid = await bcrypt.compare(
+      loginDto.password,
+      user.password,
+    );
     if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid credentials');
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...result } = user;
     return result;
   }

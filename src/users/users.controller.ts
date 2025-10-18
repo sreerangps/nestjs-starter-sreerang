@@ -12,7 +12,10 @@ export class UsersController {
   @Post('register')
   @ApiOperation({ summary: 'Register a new user' })
   @ApiResponse({ status: 201, description: 'User successfully registered' })
-  @ApiResponse({ status: 409, description: 'Email or Aadhaar already registered' })
+  @ApiResponse({
+    status: 409,
+    description: 'Email or Aadhaar already registered',
+  })
   async register(@Body() registerDto: RegisterDto) {
     return this.usersService.register(registerDto);
   }
