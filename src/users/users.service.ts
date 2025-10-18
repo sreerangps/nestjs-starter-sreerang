@@ -33,8 +33,7 @@ export class UsersService {
     });
 
     const savedUser = await this.usersRepository.save(user);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...result } = savedUser;
+    const { password: _, ...result } = savedUser;
     return result;
   }
 
@@ -55,8 +54,7 @@ export class UsersService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...result } = user;
+    const { password: _, ...result } = user;
     return result;
   }
 
